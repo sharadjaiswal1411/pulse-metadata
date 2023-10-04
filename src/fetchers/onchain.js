@@ -204,7 +204,7 @@ const sendBatch = async (encodedTokens, RPC_URL) => {
 const getTokenMetadataFromURI = async (uri) => {
   try {
     if (uri.includes("ipfs://")) {
-      uri = uri.replace("ipfs://", "https://ipfs.io/ipfs/");
+      uri = uri.replace("ipfs://", "https://cloudflare-ipfs.com/ipfs/");
     }
 
     const isDataUri = uri.startsWith("data:application/json;base64,");

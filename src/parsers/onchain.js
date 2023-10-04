@@ -25,7 +25,7 @@ export const parse = (asset) => {
 export const normalizeLink = (link) => {
   if (!link) return null;
   if (link.startsWith("ipfs://")) {
-    return `https://ipfs.io/ipfs/${link.slice(7)}`;
+    return `https://cloudflare-ipfs.com/ipfs/${link.slice(7)}`;
   }
 
   return link;
