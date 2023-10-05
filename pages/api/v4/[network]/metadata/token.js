@@ -92,7 +92,7 @@ const api = async (req, res) => {
               return response.assets.map((metadata) => extendMetadata(chainId, metadata));
             })
         );
-
+    
         return res.status(200).json({
           metadata: newMetadata,
           continuation: newContinuation,
@@ -153,6 +153,7 @@ const api = async (req, res) => {
       };
     });
 
+
     // Method-specific validations
     if (method === "opensea" && tokens.length > 30) {
       throw new Error("Too many tokens");
@@ -205,6 +206,8 @@ const api = async (req, res) => {
         ...(await Promise.all(customTokens.map((token) => customHandleToken(chainId, token)))),
       ];
     }
+
+    console.log("metadata called",metadata);
 
     return res.status(200).json({ metadata });
   } catch (error) {
